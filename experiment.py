@@ -16,12 +16,16 @@ parser.add_argument('--iteration', type=int, help='Iteration')
 args = parser.parse_args()
 params_describe = "_".join([x + "-" + str(y) for x, y in vars(args).items()]) + ".output"
 if os.path.isfile(params_describe):
-  print('Already exists')
-  sys.exit(0)
+  if open(params_describe, 'r').read() != 'Nothing[':
+    print('Already exists')
+    sys.exit(0)
+open(params_describe, 'w').write('Nothing[')
 
 waitGPU.wait(nproc=6, interval = 10, gpu_ids = [0])
-
 import torch
+
+torch.zeros(1).cuda()
+
 import torchvision
 import torch.nn as nn
 import torch.nn.functional as F
@@ -56,7 +60,12 @@ test_loader = torch.utils.data.DataLoader(
 print('Creating the model')
 model = SimpleCNN().cuda()
 svm = MultiClassHingeLoss()
-optimizer = DFW(model.parameters(), eta=args.eta, rho_ = args.rho, momentum = args.mu)
+
+rho = args.rho
+if rho == -1: # -1 means decay
+    rho = lambda t : 4. / (t+8)**(2./3)
+
+optimizer = DFW(model.parameters(), eta=args.eta, rho_ = rho, momentum = args.mu)
 print('Training')
 
 D = train(optimizer, model, train_loader, epochs = args.epochs, loss = svm)

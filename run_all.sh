@@ -1,12 +1,106 @@
-#!/bin/bash
-python experiment.py --eta 0.1 --rho 0.0 --mu 0 --epochs 20 --train_batch_size 256 &
-python experiment.py --eta 0.1 --rho 0.25 --mu 0 --epochs 20 --train_batch_size 256 &
-python experiment.py --eta 0.1 --rho 0.5 --mu 0 --epochs 20 --train_batch_size 256 &
-python experiment.py --eta 0.1 --rho 0.75 --mu 0 --epochs 20 --train_batch_size 256 &
-python experiment.py --eta 0.1 --rho 1.0 --mu 0 --epochs 20 --train_batch_size 256 &
-python experiment.py --eta 0.1 --rho 0 --mu 0.0 --epochs 20 --train_batch_size 256 &
-python experiment.py --eta 0.1 --rho 0 --mu 0.25 --epochs 20 --train_batch_size 256 &
-python experiment.py --eta 0.1 --rho 0 --mu 0.5 --epochs 20 --train_batch_size 256 &
-python experiment.py --eta 0.1 --rho 0 --mu 0.75 --epochs 20 --train_batch_size 256 &
-python experiment.py --eta 0.1 --rho 0 --mu 1.0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 0 --eta 0.10 --rho 0.00 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 0 --eta 0.10 --rho 0.17 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 0 --eta 0.10 --rho 0.33 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 0 --eta 0.10 --rho 0.50 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 0 --eta 0.10 --rho 0.67 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 0 --eta 0.10 --rho 0.83 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 0 --eta 0.10 --rho 1.00 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 0 --eta 0.10 --rho -1 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 0 --eta 0.10 --rho 0 --mu 0.00 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 0 --eta 0.10 --rho 0 --mu 0.17 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 0 --eta 0.10 --rho 0 --mu 0.33 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 0 --eta 0.10 --rho 0 --mu 0.50 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 0 --eta 0.10 --rho 0 --mu 0.67 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 0 --eta 0.10 --rho 0 --mu 0.83 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 0 --eta 0.10 --rho 0 --mu 1.00 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 1 --eta 0.10 --rho 0.00 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 1 --eta 0.10 --rho 0.17 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 1 --eta 0.10 --rho 0.33 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 1 --eta 0.10 --rho 0.50 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 1 --eta 0.10 --rho 0.67 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 1 --eta 0.10 --rho 0.83 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 1 --eta 0.10 --rho 1.00 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 1 --eta 0.10 --rho -1 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 1 --eta 0.10 --rho 0 --mu 0.00 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 1 --eta 0.10 --rho 0 --mu 0.17 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 1 --eta 0.10 --rho 0 --mu 0.33 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 1 --eta 0.10 --rho 0 --mu 0.50 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 1 --eta 0.10 --rho 0 --mu 0.67 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 1 --eta 0.10 --rho 0 --mu 0.83 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 1 --eta 0.10 --rho 0 --mu 1.00 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 2 --eta 0.10 --rho 0.00 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 2 --eta 0.10 --rho 0.17 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 2 --eta 0.10 --rho 0.33 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 2 --eta 0.10 --rho 0.50 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 2 --eta 0.10 --rho 0.67 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 2 --eta 0.10 --rho 0.83 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 2 --eta 0.10 --rho 1.00 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 2 --eta 0.10 --rho -1 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 2 --eta 0.10 --rho 0 --mu 0.00 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 2 --eta 0.10 --rho 0 --mu 0.17 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 2 --eta 0.10 --rho 0 --mu 0.33 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 2 --eta 0.10 --rho 0 --mu 0.50 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 2 --eta 0.10 --rho 0 --mu 0.67 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 2 --eta 0.10 --rho 0 --mu 0.83 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 2 --eta 0.10 --rho 0 --mu 1.00 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 3 --eta 0.10 --rho 0.00 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 3 --eta 0.10 --rho 0.17 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 3 --eta 0.10 --rho 0.33 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 3 --eta 0.10 --rho 0.50 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 3 --eta 0.10 --rho 0.67 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 3 --eta 0.10 --rho 0.83 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 3 --eta 0.10 --rho 1.00 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 3 --eta 0.10 --rho -1 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 3 --eta 0.10 --rho 0 --mu 0.00 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 3 --eta 0.10 --rho 0 --mu 0.17 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 3 --eta 0.10 --rho 0 --mu 0.33 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 3 --eta 0.10 --rho 0 --mu 0.50 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 3 --eta 0.10 --rho 0 --mu 0.67 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 3 --eta 0.10 --rho 0 --mu 0.83 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 3 --eta 0.10 --rho 0 --mu 1.00 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 4 --eta 0.10 --rho 0.00 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 4 --eta 0.10 --rho 0.17 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 4 --eta 0.10 --rho 0.33 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 4 --eta 0.10 --rho 0.50 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 4 --eta 0.10 --rho 0.67 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 4 --eta 0.10 --rho 0.83 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 4 --eta 0.10 --rho 1.00 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 4 --eta 0.10 --rho -1 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 4 --eta 0.10 --rho 0 --mu 0.00 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 4 --eta 0.10 --rho 0 --mu 0.17 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 4 --eta 0.10 --rho 0 --mu 0.33 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 4 --eta 0.10 --rho 0 --mu 0.50 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 4 --eta 0.10 --rho 0 --mu 0.67 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 4 --eta 0.10 --rho 0 --mu 0.83 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 4 --eta 0.10 --rho 0 --mu 1.00 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 5 --eta 0.10 --rho 0.00 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 5 --eta 0.10 --rho 0.17 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 5 --eta 0.10 --rho 0.33 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 5 --eta 0.10 --rho 0.50 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 5 --eta 0.10 --rho 0.67 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 5 --eta 0.10 --rho 0.83 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 5 --eta 0.10 --rho 1.00 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 5 --eta 0.10 --rho -1 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 5 --eta 0.10 --rho 0 --mu 0.00 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 5 --eta 0.10 --rho 0 --mu 0.17 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 5 --eta 0.10 --rho 0 --mu 0.33 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 5 --eta 0.10 --rho 0 --mu 0.50 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 5 --eta 0.10 --rho 0 --mu 0.67 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 5 --eta 0.10 --rho 0 --mu 0.83 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 5 --eta 0.10 --rho 0 --mu 1.00 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 6 --eta 0.10 --rho 0.00 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 6 --eta 0.10 --rho 0.17 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 6 --eta 0.10 --rho 0.33 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 6 --eta 0.10 --rho 0.50 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 6 --eta 0.10 --rho 0.67 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 6 --eta 0.10 --rho 0.83 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 6 --eta 0.10 --rho 1.00 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 6 --eta 0.10 --rho -1 --mu 0 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 6 --eta 0.10 --rho 0 --mu 0.00 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 6 --eta 0.10 --rho 0 --mu 0.17 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 6 --eta 0.10 --rho 0 --mu 0.33 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 6 --eta 0.10 --rho 0 --mu 0.50 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 6 --eta 0.10 --rho 0 --mu 0.67 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 6 --eta 0.10 --rho 0 --mu 0.83 --epochs 20 --train_batch_size 256 &
+python experiment.py --iteration 6 --eta 0.10 --rho 0 --mu 1.00 --epochs 20 --train_batch_size 256 &
 
