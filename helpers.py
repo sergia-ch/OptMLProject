@@ -82,6 +82,15 @@ class __FCModel():
             z = fc_layer(z, self.N[-1], activation = None)
             return z
 
+def get_p_vector_norm(list_of_tensors, order):
+    """ p-norm of a list of tensors flattened to a vector """
+    # weights as a vector
+    weights_flattened = tf.concat([tf.reshape(w, (-1,)) for w in list_of_tensors], axis = 0)
+
+    # p-norm of the weights (must be <= R)
+    weight_p_norm = tf.norm(weights_flattened, ord = order)
+    return weight_p_norm
+
 def trainable_of(loss):
     # get the Hessian of the model
     return [x for x in tf.trainable_variables() if tf.gradients(loss, [x])[0] is not None]
@@ -103,14 +112,6 @@ class StochasticFrankWolfe():
             frank_wolfe_op = tf.group([w.assign((1. - self.gamma) * w + self.gamma * s)
                            for w, s in zip(weights, descent_direction)])
             return tf.group(frank_wolfe_op)
-        def get_p_vector_norm(list_of_tensors, order):
-            """ p-norm of a list of tensors flattened to a vector """
-            # weights as a vector
-            weights_flattened = tf.concat([tf.reshape(w, (-1,)) for w in list_of_tensors], axis = 0)
-
-            # p-norm of the weights (must be <= R)
-            weight_p_norm = tf.norm(weights_flattened, ord = order)
-            return weight_p_norm
           
         def LMO(g):
             """ Linear oracle for a list of tensors """
@@ -299,7 +300,7 @@ def get_hessian(hessian, x_train, y_train, x, y, sess):
       eigens = [-1]
     return eigens
 
-def experiment_for_optimizer(gd, epochs, accuracy_threshold, repetitions, giveup, sess, x_train, y_train, x, y, hessian, accuracy, loss, batch_size, x_test, y_test, name):
+def experiment_for_optimizer(gd, epochs, accuracy_threshold, repetitions, giveup, sess, x_train, y_train, x, y, hessian, accuracy, loss, batch_size, x_test, y_test, name, p):
     """ Train repetitions copies of a network with optimizer, output
     Hessian eigenvalues of those satisfying accuracy threshold"""
     
@@ -316,6 +317,7 @@ def experiment_for_optimizer(gd, epochs, accuracy_threshold, repetitions, giveup
             print('Error: accuracy is insufficient train=%.2f test=%.2f' % (train_acc, test_acc))
             print('Done: %d/%d/%d' % (r, repetitions, i))
             continue
+        metrics['p_norm'] = sess.run([get_p_vector_norm(tf.trainable_variables(), order = p)])[0]
         eigens = list(get_hessian(hessian, x_train, y_train, x, y, sess))
         r += 1
         print('Done: %d/%d/%d' % (r, repetitions, i))

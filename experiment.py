@@ -50,7 +50,7 @@ if os.path.isfile(params_describe):
 open(params_describe, 'w').write('Nothing[')
 
 # waiting for GPU
-waitGPU.wait(nproc=6, interval = 10, gpu_ids = [0])
+waitGPU.wait(nproc=6, interval = 10, gpu_ids = [0, 1])
 
 # creating a session...
 import tensorflow as tf
@@ -137,7 +137,7 @@ train_op = gd(**get_params_from_args(params)).minimize(loss)
 D = experiment_for_optimizer(train_op, epochs = args.epochs, accuracy_threshold = args.accuracy_threshold, repetitions = args.repetitions,
                          giveup = args.giveup, sess = sess, x_train = x_train, y_train = y_train, x = x, y = y,
                          hessian = hessian, accuracy = accuracy, loss = loss, batch_size = args.train_batch_size,
-                        x_test = x_test, y_test = y_test, name = params_describe)
+                        x_test = x_test, y_test = y_test, name = params_describe, p = args.p)
 
 print('Writing results')
 f = open(params_describe, "w")
