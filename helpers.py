@@ -293,7 +293,10 @@ def train(operation, epochs_, sess, batch_size, loss, accuracy, x_train, y_train
 def get_hessian(hessian, x_train, y_train, x, y, sess):
     """ Get hessian at x, y"""
     H = sess.run(hessian, feed_dict = {x: x_train, y: y_train})
-    eigens = np.real(np.linalg.eig(H)[0][0])
+    try:
+      eigens = np.real(np.linalg.eig(H)[0][0])
+    except:
+      eigens = [-1]
     return eigens
 
 def experiment_for_optimizer(gd, epochs, accuracy_threshold, repetitions, giveup, sess, x_train, y_train, x, y, hessian, accuracy, loss, batch_size, x_test, y_test, name):
@@ -313,9 +316,9 @@ def experiment_for_optimizer(gd, epochs, accuracy_threshold, repetitions, giveup
             print('Error: accuracy is insufficient train=%.2f test=%.2f' % (train_acc, test_acc))
             print('Done: %d/%d/%d' % (r, repetitions, i))
             continue
-        eigens = get_hessian(hessian, x_train, y_train, x, y, sess)
+        eigens = list(get_hessian(hessian, x_train, y_train, x, y, sess))
         r += 1
         print('Done: %d/%d/%d' % (r, repetitions, i))
         metrics['hessian_eigens'] = eigens
         results.append(metrics)
-    return result
+    return results

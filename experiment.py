@@ -10,7 +10,8 @@ import os
 
 # only using device 0
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"   # see issue #152
-os.environ["CUDA_VISIBLE_DEVICES"]="1"
+#os.environ["CUDA_VISIBLE_DEVICES"]="1"
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2' 
 
 parser = argparse.ArgumentParser(description='Run the experiment')
 parser.add_argument('--optimizer', type=str, help='Optimizer')
@@ -24,6 +25,7 @@ parser.add_argument('--train_batch_size', type=int, help='Train batch size')
 # optimizer args
 #R, p, gamma, ro, learning_rate, beta1, beta2, epsilon
 parser.add_argument('--R', type=float)
+parser.add_argument('--gamma', type=float)
 parser.add_argument('--p', type=float)
 parser.add_argument('--ro', type=float)
 parser.add_argument('--learning_rate', type=float)
@@ -132,10 +134,10 @@ else:
 train_op = gd(**get_params_from_args(params)).minimize(loss)
 
 # obtaining data...
-D = experiment_for_optimizer(gd, epochs = args.epochs, accuracy_threshold = args.accuracy_threshold, repetitions = args.repetitions,
+D = experiment_for_optimizer(train_op, epochs = args.epochs, accuracy_threshold = args.accuracy_threshold, repetitions = args.repetitions,
                          giveup = args.giveup, sess = sess, x_train = x_train, y_train = y_train, x = x, y = y,
                          hessian = hessian, accuracy = accuracy, loss = loss, batch_size = args.train_batch_size,
-                        x_test = x_test, y_test = y_test)
+                        x_test = x_test, y_test = y_test, name = params_describe)
 
 print('Writing results')
 f = open(params_describe, "w")
