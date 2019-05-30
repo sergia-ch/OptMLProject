@@ -125,7 +125,7 @@ class StochasticFrankWolfe():
             return [-self.R * g_qp_signed0 / g_q_qp_norm for g_qp_signed0 in g_qp_signed]
 
         # current iteration
-        step = tf.Variable(1, dtype = tf.float64)
+        step = tf.Variable(1, dtype = tf.float32)
 
         # negative gamma -> decreasing
         if self.gamma < 0:
