@@ -50,7 +50,7 @@ if os.path.isfile(params_describe):
 open(params_describe, 'w').write('Nothing[')
 
 # waiting for GPU
-waitGPU.wait(nproc=6, interval = 10, gpu_ids = [0, 1])
+waitGPU.wait(nproc=1, interval = 10, gpu_ids = [0, 1])
 
 # creating a session...
 import tensorflow as tf

@@ -124,6 +124,17 @@ class StochasticFrankWolfe():
 
             return [-self.R * g_qp_signed0 / g_q_qp_norm for g_qp_signed0 in g_qp_signed]
 
+        # current iteration
+        step = tf.Variable(1, dtype = tf.float64)
+
+        # negative gamma -> decreasing
+        if self.gamma < 0:
+            self.gamma = 2. / (step + 2)
+
+        # negative ro -> decreasing
+        if self.ro < 0:
+            self.ro = 4. / (step + 8) ** (2. / 3)
+
         # obtaining weights automatically
         weights = trainable_of(loss)
 
@@ -150,8 +161,11 @@ class StochasticFrankWolfe():
         #op = decrement_weights(weights, self.gamma, grads)
         with tf.control_dependencies([op]):
             dt_op = tf.group([dt1.assign(dtnext1) for dt1, dtnext1 in zip(dt, dt_next)])
+
+        with tf.control_dependencies([dt_op]):
+            step_inc = step.assign(step + 1)
         
-        return tf.group([dt_op, op])
+        return tf.group([dt_op, op, step_inc])
 
 class OwnGradientDescent():
     def __init__(self, gamma = 0.5, theta = 0.9):
