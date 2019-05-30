@@ -3,6 +3,7 @@ import torchvision
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
+import numpy as np
 
 from dfw.dfw import DFW
 from dfw.dfw.losses import MultiClassHingeLoss
@@ -53,7 +54,7 @@ def train(optimizer, model, train_loader, loss, epochs = 15):
             # (this syntax is compatible with standard pytorch optimizers too)
             optimizer.step(lambda: float(loss_))
             losses.append(loss_.item())
-            accs.append(acc)
+            accs.append(acc.item())
     return {'train_batch_losses': losses, 'train_batch_accs': accs}
 
 def metrics_post(data_loader, model, loss, name = ''):
