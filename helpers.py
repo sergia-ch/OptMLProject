@@ -125,7 +125,7 @@ class StochasticFrankWolfe():
             return [-self.R * g_qp_signed0 / g_q_qp_norm for g_qp_signed0 in g_qp_signed]
 
         # current iteration
-        step = tf.Variable(1, dtype = tf.float32)
+        step = tf.Variable(1, dtype = tf.float32, trainable = False)
 
         # negative gamma -> decreasing
         if self.gamma < 0:
@@ -142,7 +142,7 @@ class StochasticFrankWolfe():
         grads = tf.gradients(loss, weights)
 
         # temporary variable for grads
-        dt = [tf.Variable(x) for x in [tf.zeros_like(g) for g in weights]]
+        dt = [tf.Variable(x, trainable = False) for x in [tf.zeros_like(g) for g in weights]]
 
         # p-norm of weights
         weight_p_norm = get_p_vector_norm(weights, self.p)
@@ -170,7 +170,7 @@ class StochasticFrankWolfe():
 class OwnGradientDescent():
     def __init__(self, gamma = 0.5, theta = 0.9):
         # gamma (learning rate)
-        self.gamma = tf.Variable(gamma, dtype = tf.float32)
+        self.gamma = tf.Variable(gamma, dtype = tf.float32, trainable = False)
         self.theta = theta
         
     def minimize(self, loss):
@@ -331,6 +331,7 @@ def experiment_for_optimizer(gd, epochs, accuracy_threshold, repetitions, giveup
             print('Error: accuracy is insufficient train=%.2f test=%.2f' % (train_acc, test_acc))
             print('Done: %d/%d/%d' % (r, repetitions, i))
             continue
+        assert len(tf.trainable_variables()) == 1, "Must have only one trainable"
         metrics['p_norm'] = sess.run([get_p_vector_norm(tf.trainable_variables(), order = p)])[0]
         eigens = list(get_hessian(hessian, x_train, y_train, x, y, sess))
         r += 1
