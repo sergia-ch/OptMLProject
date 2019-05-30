@@ -15,6 +15,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 parser = argparse.ArgumentParser(description='Run the experiment')
 parser.add_argument('--optimizer', type=str, help='Optimizer')
+parser.add_argument('--architecture', type=str, help='Net layers')
 parser.add_argument('--image_side', type=int, help='Image side')
 parser.add_argument('--giveup', type=int, help='After this number iterations w/o success stop trying')
 parser.add_argument('--accuracy_threshold', type=float, help='Accuracy below which nn is discarded and the experiment is repeat')
@@ -82,8 +83,12 @@ y = tf.placeholder(tf.int64, shape = (None,), name = 'labels')
 # one-hot encoded labels
 y_one_hot = tf.one_hot(y, output_shape)
 
+# number of layers
+Ns = [int(t) for t in args.architecture.split('_')]
+print(Ns)
+
 # creating the model
-model = FCModelConcat([np.prod(input_shape), 50, 50, 20, output_shape], activation = tf.nn.sigmoid)
+model = FCModelConcat([np.prod(input_shape), *Ns, output_shape], activation = tf.nn.sigmoid)
 
 # model output
 output = model.forward(x)
