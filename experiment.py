@@ -1,12 +1,25 @@
 import argparse
 # one experiment!
 
+import waitGPU
+import os
+import sys
+
 parser = argparse.ArgumentParser(description='Run the experiment')
 parser.add_argument('--eta', type=float, help='Learning rate')
 parser.add_argument('--rho', type=float, help='SFW averating')
 parser.add_argument('--mu', type=float, help='Momentum')
 parser.add_argument('--epochs', type=int, help='Number of epochs')
 parser.add_argument('--train_batch_size', type=int, help='Train batch size')
+parser.add_argument('--iteration', type=int, help='Iteration')
+
+args = parser.parse_args()
+params_describe = "_".join([x + "-" + str(y) for x, y in vars(args).items()]) + ".output"
+if os.path.isfile(params_describe):
+  print('Already exists')
+  sys.exit(0)
+
+waitGPU.wait(nproc=6, interval = 10, gpu_ids = [0])
 
 import torch
 import torchvision
@@ -19,7 +32,6 @@ from dfw.dfw import DFW
 from dfw.dfw.losses import MultiClassHingeLoss
 from dfw.experiments.utils import accuracy
 
-args = parser.parse_args()
 
 print('Loading data')
 
@@ -49,10 +61,9 @@ print('Training')
 
 D = train(optimizer, model, train_loader, epochs = args.epochs, loss = svm)
 D.update(metrics_post_all(train_loader, test_loader = test_loader, model =  model, loss = svm))
-print(D)
+#print(D)
 
 print('Writing results')
-params_describe = "_".join([x + "-" + str(y) for x, y in vars(args).items()])
-f = open(params_describe + ".output", "w")
+f = open(params_describe, "w")
 f.write(str(D))
 f.close()
