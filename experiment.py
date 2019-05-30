@@ -5,72 +5,137 @@ import waitGPU
 import os
 import sys
 
-parser = argparse.ArgumentParser(description='Run the experiment')
-parser.add_argument('--eta', type=float, help='Learning rate')
-parser.add_argument('--rho', type=float, help='SFW averating')
-parser.add_argument('--mu', type=float, help='Momentum')
-parser.add_argument('--epochs', type=int, help='Number of epochs')
-parser.add_argument('--train_batch_size', type=int, help='Train batch size')
-parser.add_argument('--iteration', type=int, help='Iteration')
+# for environ
+import os
 
+# only using device 0
+os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"   # see issue #152
+os.environ["CUDA_VISIBLE_DEVICES"]="1"
+
+parser = argparse.ArgumentParser(description='Run the experiment')
+parser.add_argument('--optimizer', type=str, help='Optimizer')
+parser.add_argument('--image_side', type=int, help='Image side')
+parser.add_argument('--giveup', type=int, help='After this number iterations w/o success stop trying')
+parser.add_argument('--accuracy_threshold', type=float, help='Accuracy below which nn is discarded and the experiment is repeat')
+parser.add_argument('--epochs', type=int, help='Number of epochs')
+parser.add_argument('--repetitions', type=int, help='Number of experiments to run')
+parser.add_argument('--train_batch_size', type=int, help='Train batch size')
+
+# optimizer args
+#R, p, gamma, ro, learning_rate, beta1, beta2, epsilon
+parser.add_argument('--R', type=float)
+parser.add_argument('--p', type=float)
+parser.add_argument('--ro', type=float)
+parser.add_argument('--learning_rate', type=float)
+parser.add_argument('--beta1', type=float)
+parser.add_argument('--beta2', type=float)
+parser.add_argument('--epsilon', type=float)
+
+# parsing arguments
 args = parser.parse_args()
+
+# FILENAME for output
 params_describe = "_".join([x + "-" + str(y) for x, y in vars(args).items()]) + ".output"
+
+# writing something there if it doesn't exist
+# if exists, exiting
 if os.path.isfile(params_describe):
   if open(params_describe, 'r').read() != 'Nothing[':
     print('Already exists')
     sys.exit(0)
+
+# writing temporary data
 open(params_describe, 'w').write('Nothing[')
 
+# waiting for GPU
 waitGPU.wait(nproc=6, interval = 10, gpu_ids = [0])
-import torch
 
-torch.zeros(1).cuda()
+# creating a session...
+import tensorflow as tf
+tf.reset_default_graph()
+# allowing GPU memory growth to allocate only what we need
+config = tf.ConfigProto(log_device_placement=True)
+config.gpu_options.per_process_gpu_memory_fraction = 0.5
+config.gpu_options.allow_growth = True
+sess = tf.Session(config=config, graph = tf.get_default_graph())
 
-import torchvision
-import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
-from experiment_helpers import *
-
-from dfw.dfw import DFW
-from dfw.dfw.losses import MultiClassHingeLoss
-from dfw.experiments.utils import accuracy
-
+# more imports
+from matplotlib import pyplot as plt
+import numpy as np
+from tqdm import tqdm
+from helpers import *
 
 print('Loading data')
 
-train_loader = torch.utils.data.DataLoader(
-  torchvision.datasets.MNIST('./files/', train=True, download=True,
-                             transform=torchvision.transforms.Compose([
-                               torchvision.transforms.ToTensor(),
-                               torchvision.transforms.Normalize(
-                                 (0.1307,), (0.3081,))
-                             ])),
-  batch_size=args.train_batch_size, shuffle=True)
-
-test_loader = torch.utils.data.DataLoader(
-  torchvision.datasets.MNIST('./files/', train=False, download=True,
-                             transform=torchvision.transforms.Compose([
-                               torchvision.transforms.ToTensor(),
-                               torchvision.transforms.Normalize(
-                                 (0.1307,), (0.3081,))
-                             ])),
-  batch_size=10000, shuffle=True)
+input_shape, output_shape, x_train, x_test, y_train, y_test = get_mnist(7)
 
 print('Creating the model')
-model = SimpleCNN().cuda()
-svm = MultiClassHingeLoss()
 
-rho = args.rho
-if rho == -1: # -1 means decay
-    rho = lambda t : 4. / (t+8)**(2./3)
+# input data: batch w h channels
+x = tf.placeholder(tf.float32, shape = (None, *input_shape), name = 'input')
 
-optimizer = DFW(model.parameters(), eta=args.eta, rho_ = rho, momentum = args.mu)
+# output labels (vector)
+y = tf.placeholder(tf.int64, shape = (None,), name = 'labels')
+
+# one-hot encoded labels
+y_one_hot = tf.one_hot(y, output_shape)
+
+# creating the model
+model = FCModelConcat([np.prod(input_shape), 50, 50, 20, output_shape], activation = tf.nn.sigmoid)
+
+# model output
+output = model.forward(x)
+
+# flatten w * h
+l0 = tf.contrib.layers.flatten(x)
+
+# softmax to make probability distribution
+logits = tf.nn.softmax(output)
+
+# predicted labels
+labels = tf.argmax(logits, axis = 1)
+
+# loss: cross-entropy
+loss = tf.losses.softmax_cross_entropy(y_one_hot, logits)
+
+# accuracy of predictions
+accuracy = tf.contrib.metrics.accuracy(labels, y)
+
+# list of all parameters
+params = tf.trainable_variables()#tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES)
+
+# get the Hessian of the model
+hessian = tf.hessians(loss, model.W)
+
+K = np.sum([np.prod(p.shape).value for p in params])
+
+print('Total parameters:', K)
+print('Hessian size: %.2f MB' % (K * K / 1e6))
+
 print('Training')
 
-D = train(optimizer, model, train_loader, epochs = args.epochs, loss = svm)
-D.update(metrics_post_all(train_loader, test_loader = test_loader, model =  model, loss = svm))
-#print(D)
+def get_params_from_args(lst):
+  return {x: vars(args)[x] for x in lst}
+
+if args.optimizer == 'adam':
+  params = ['learning_rate', 'beta1', 'beta2', 'epsilon']
+  gd = tf.train.AdamOptimizer
+elif args.optimizer == 'frankwolfe':
+  params = ['R', 'p', 'gamma', 'ro']
+  gd = StochasticFrankWolfe
+elif args.optimizer == 'sgd':
+  params = ['learning_rate']
+  gd = tf.train.GradientDescentOptimizer
+else:
+  print('Unknown optimizer ' + args.optimizer)
+  sys.exit(0)
+train_op = gd(**get_params_from_args(params)).minimize(loss)
+
+# obtaining data...
+D = experiment_for_optimizer(gd, epochs = args.epochs, accuracy_threshold = args.accuracy_threshold, repetitions = args.repetitions,
+                         giveup = args.giveup, sess = sess, x_train = x_train, y_train = y_train, x = x, y = y,
+                         hessian = hessian, accuracy = accuracy, loss = loss, batch_size = args.train_batch_size,
+                        x_test = x_test, y_test = y_test)
 
 print('Writing results')
 f = open(params_describe, "w")
