@@ -77,6 +77,7 @@ def write_sh_file(setting_name, parameters, common, delay = None):
             write_to_out('wait $pids')
         write_to_out('sleep %.2f' % delay)
         it += 1
+    write_to_out('wait $pids')
     it = len(parameters)
     print('Total train stages: ', it * common['repetitions'])
     print('Total time, hours (approx): ', common['repetitions'] * 5 * it / 4 / 60)

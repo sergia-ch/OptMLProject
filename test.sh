@@ -1,2 +1,2 @@
 #!/bin/bash
-./run.sh 0
+./run_all.sh 0
