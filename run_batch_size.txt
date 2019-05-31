@@ -1,0 +1,76 @@
+Which variables are changing for each optimizer?
+{'sgd': ['train_batch_size'], 'frankwolfe_stochastic': ['train_batch_size'], 'frankwolfe_deterministic': [], 'adam': ['train_batch_size']}
+Output figure for loss: ./output/figures/loss_decay_medium2_op-sgd_tr_ba_si-1000_le_ra-1.0_ep-1000_im_si-5_gi-100_ac_th-0.0_p-3.0_re-10_ar-20_10.pdf
+{'optimizer': 'sgd', 'train_batch_size': 1000, 'learning_rate': 1.0, 'epochs': 1000, 'image_side': 5, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 10, 'architecture': '20_10'}
+{'train_loss': (1.61003471, 0.05821113403975997), 'test_loss': (1.6118706299999999, 0.05860425139131207), 'train_acc': (0.8532683220000001, 0.06068782292752457), 'test_acc': (0.84988, 0.06060582150255865), 'p_norm': (30.0318294, 1.924644326804939), 'hessian_eigens_mean': (0.001200135177152282, 0.00019663521951496688), 'hessian_eigens_Max': (0.31698568099999996, 0.06418124362285098)}
+-----
+Output figure for loss: ./output/figures/loss_decay_medium2_op-sgd_tr_ba_si-5000_le_ra-1.0_ep-1000_im_si-5_gi-100_ac_th-0.0_p-3.0_re-10_ar-20_10.pdf
+{'optimizer': 'sgd', 'train_batch_size': 5000, 'learning_rate': 1.0, 'epochs': 1000, 'image_side': 5, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 10, 'architecture': '20_10'}
+{'train_loss': (1.7143867499999998, 0.029665954470984048), 'test_loss': (1.71150283, 0.029991314102754827), 'train_acc': (0.7523999939999999, 0.03222904985223773), 'test_acc': (0.7548400000000001, 0.03268318221960645), 'p_norm': (20.535270599999997, 0.6207584077981064), 'hessian_eigens_mean': (0.0007636994239873401, 0.00013534985061483865), 'hessian_eigens_Max': (0.215325897, 0.03479812505464541)}
+-----
+Output figure for loss: ./output/figures/loss_decay_medium2_op-sgd_tr_ba_si-10000_le_ra-1.0_ep-1000_im_si-5_gi-100_ac_th-0.0_p-3.0_re-10_ar-20_10.pdf
+{'optimizer': 'sgd', 'train_batch_size': 10000, 'learning_rate': 1.0, 'epochs': 1000, 'image_side': 5, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 10, 'architecture': '20_10'}
+{'train_loss': (1.8574906100000004, 0.06847367046813613), 'test_loss': (1.8526269599999998, 0.06961419944392377), 'train_acc': (0.605181661, 0.0710886407902401), 'test_acc': (0.6101700000000001, 0.07246257033807178), 'p_norm': (16.9742277, 0.8821576642911458), 'hessian_eigens_mean': (0.0006001948616325515, 0.00011951296111837306), 'hessian_eigens_Max': (0.1902533136, 0.03702139426803654)}
+-----
+Output figure for loss: ./output/figures/loss_decay_medium2_op-sgd_tr_ba_si-60000_le_ra-1.0_ep-1000_im_si-5_gi-100_ac_th-0.0_p-3.0_re-10_ar-20_10.pdf
+{'optimizer': 'sgd', 'train_batch_size': 60000, 'learning_rate': 1.0, 'epochs': 1000, 'image_side': 5, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 10, 'architecture': '20_10'}
+{'train_loss': (1.9851475300000003, 0.03382229917856113), 'test_loss': (1.9843845999999998, 0.0333510351684022), 'train_acc': (0.489905001, 0.03510389415516331), 'test_acc': (0.49085, 0.03561837306784238), 'p_norm': (12.821610950000002, 0.21586050016671068), 'hessian_eigens_mean': (0.0007468963806954553, 0.00011330647507082933), 'hessian_eigens_Max': (0.230303263, 0.03526963353753142)}
+-----
+Output figure for loss: ./output/figures/loss_decay_medium2_op-frankwolfe_tr_ba_si-1000_R-20.0_ga--1.0_ro--1.0_ep-1000_im_si-5_gi-100_ac_th-0.0_p-3.0_re-10_ar-20_10.pdf
+{'optimizer': 'frankwolfe', 'train_batch_size': 1000, 'R': 20.0, 'gamma': -1.0, 'ro': -1.0, 'epochs': 1000, 'image_side': 5, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 10, 'architecture': '20_10'}
+{'train_loss': (1.5279445299999999, 0.0013668843243303257), 'test_loss': (1.52613093, 0.0013433906878120036), 'train_acc': (0.948898325, 0.0011174490668504741), 'test_acc': (0.94926, 0.001228169369427518), 'p_norm': (19.292978400000003, 0.05153987664556411), 'hessian_eigens_mean': (0.0014939019523055371, 0.00014295717645164941), 'hessian_eigens_Max': (0.385849676, 0.05991855877752054)}
+-----
+Output figure for loss: ./output/figures/loss_decay_medium2_op-frankwolfe_tr_ba_si-5000_R-20.0_ga--1.0_ro--1.0_ep-1000_im_si-5_gi-100_ac_th-0.0_p-3.0_re-10_ar-20_10.pdf
+{'optimizer': 'frankwolfe', 'train_batch_size': 5000, 'R': 20.0, 'gamma': -1.0, 'ro': -1.0, 'epochs': 1000, 'image_side': 5, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 10, 'architecture': '20_10'}
+{'train_loss': (1.52691542, 0.0006843470987737388), 'test_loss': (1.5249548899999998, 0.0007664213755500274), 'train_acc': (0.9496999990000001, 0.0008303630934531051), 'test_acc': (0.95041, 0.0009554580053566009), 'p_norm': (19.506952400000003, 0.05698662572604213), 'hessian_eigens_mean': (0.0015440943545954628, 0.00013124539890180354), 'hessian_eigens_Max': (0.39633276100000003, 0.07529223330218815)}
+-----
+Output figure for loss: ./output/figures/loss_decay_medium2_op-frankwolfe_tr_ba_si-10000_R-20.0_ga--1.0_ro--1.0_ep-1000_im_si-5_gi-100_ac_th-0.0_p-3.0_re-10_ar-20_10.pdf
+{'optimizer': 'frankwolfe', 'train_batch_size': 10000, 'R': 20.0, 'gamma': -1.0, 'ro': -1.0, 'epochs': 1000, 'image_side': 5, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 10, 'architecture': '20_10'}
+{'train_loss': (1.52824886, 0.0018483267358343543), 'test_loss': (1.52656799, 0.002169351556318175), 'train_acc': (0.9482816699999999, 0.00171799892976104), 'test_acc': (0.9486100000000001, 0.0025851305576314767), 'p_norm': (19.502479500000003, 0.1521532511543869), 'hessian_eigens_mean': (0.001449223062665654, 0.00016493630567459918), 'hessian_eigens_Max': (0.366328182, 0.07497865974174969)}
+-----
+Output figure for loss: ./output/figures/loss_decay_medium2_op-frankwolfe_tr_ba_si-60000_R-20.0_ga--1.0_ro--1.0_ep-1000_im_si-5_gi-100_ac_th-0.0_p-3.0_re-10_ar-20_10.pdf
+{'optimizer': 'frankwolfe', 'train_batch_size': 60000, 'R': 20.0, 'gamma': -1.0, 'ro': -1.0, 'epochs': 1000, 'image_side': 5, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 10, 'architecture': '20_10'}
+{'train_loss': (1.5912543600000002, 0.06542250483275919), 'test_loss': (1.5877398999999999, 0.06524729230731341), 'train_acc': (0.8894266710000001, 0.06587683411060423), 'test_acc': (0.8920699999999998, 0.0659477528047772), 'p_norm': (17.1091158, 1.4440162232270664), 'hessian_eigens_mean': (0.001290752852508089, 0.0001852043623465867), 'hessian_eigens_Max': (0.33147478, 0.04168997593502328)}
+-----
+Output figure for loss: ./output/figures/loss_decay_medium2_op-frankwolfe_tr_ba_si-60000_R-20.0_ga--1.0_ro-1.0_ep-5000_im_si-5_gi-100_ac_th-0.0_p-3.0_re-10_ar-20_10.pdf
+{'optimizer': 'frankwolfe', 'train_batch_size': 60000, 'R': 20.0, 'gamma': -1.0, 'ro': 1.0, 'epochs': 5000, 'image_side': 5, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 10, 'architecture': '20_10'}
+{'train_loss': (1.57764329, 0.01664344870472765), 'test_loss': (1.57204324, 0.016109704915497382), 'train_acc': (0.9103849980000002, 0.011200515433393954), 'test_acc': (0.9149900000000001, 0.010536360851831152), 'p_norm': (16.3552338, 0.6754410729240264), 'hessian_eigens_mean': (0.0013310430096541977, 0.0001493650166901167), 'hessian_eigens_Max': (0.325363416, 0.042147276537330663)}
+-----
+Output figure for loss: ./output/figures/loss_decay_medium2_op-adam_tr_ba_si-1000_le_ra-0.001_be-0.9_be-0.999_ep-1e-08_ep-1000_im_si-5_gi-100_ac_th-0.0_p-3.0_re-10_ar-20_10.pdf
+{'optimizer': 'adam', 'train_batch_size': 1000, 'learning_rate': 0.001, 'beta1': 0.9, 'beta2': 0.999, 'epsilon': 1e-08, 'epochs': 1000, 'image_side': 5, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 10, 'architecture': '20_10'}
+{'train_loss': (1.5041730000000002, 0.002521659286660256), 'test_loss': (1.5112910899999998, 0.0017381814602912037), 'train_acc': (0.9607550039999999, 0.002320886924407116), 'test_acc': (0.9511100000000001, 0.0016275441622272597), 'p_norm': (48.7296134, 1.1494009248510466), 'hessian_eigens_mean': (0.001714430335861676, 0.00010405835445533608), 'hessian_eigens_Max': (0.412523876, 0.06174280633441019)}
+-----
+Output figure for loss: ./output/figures/loss_decay_medium2_op-adam_tr_ba_si-5000_le_ra-0.001_be-0.9_be-0.999_ep-1e-08_ep-1000_im_si-5_gi-100_ac_th-0.0_p-3.0_re-10_ar-20_10.pdf
+{'optimizer': 'adam', 'train_batch_size': 5000, 'learning_rate': 0.001, 'beta1': 0.9, 'beta2': 0.999, 'epsilon': 1e-08, 'epochs': 1000, 'image_side': 5, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 10, 'architecture': '20_10'}
+{'train_loss': (1.5375796899999998, 0.03340708469685585), 'test_loss': (1.5384385, 0.0330492319235107), 'train_acc': (0.928954997, 0.03446619069815144), 'test_acc': (0.9265899999999998, 0.03421726026437534), 'p_norm': (33.143111, 0.6192519068679563), 'hessian_eigens_mean': (0.0009450995121196093, 0.00011566580293596904), 'hessian_eigens_Max': (0.238715703, 0.043812689124111306)}
+-----
+Output figure for loss: ./output/figures/loss_decay_medium2_op-adam_tr_ba_si-10000_le_ra-0.001_be-0.9_be-0.999_ep-1e-08_ep-1000_im_si-5_gi-100_ac_th-0.0_p-3.0_re-10_ar-20_10.pdf
+{'optimizer': 'adam', 'train_batch_size': 10000, 'learning_rate': 0.001, 'beta1': 0.9, 'beta2': 0.999, 'epsilon': 1e-08, 'epochs': 1000, 'image_side': 5, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 10, 'architecture': '20_10'}
+{'train_loss': (1.6380651299999998, 0.03235612054150033), 'test_loss': (1.63660379, 0.031094739647614045), 'train_acc': (0.8307549919999999, 0.03465227914329729), 'test_acc': (0.83123, 0.03329480590122129), 'p_norm': (25.6364501, 0.6573021322566128), 'hessian_eigens_mean': (0.0006178913388390831, 8.584737516302991e-05), 'hessian_eigens_Max': (0.144789599, 0.0175721833686588)}
+-----
+Output figure for loss: ./output/figures/loss_decay_medium2_op-adam_tr_ba_si-60000_le_ra-0.001_be-0.9_be-0.999_ep-1e-08_ep-1000_im_si-5_gi-100_ac_th-0.0_p-3.0_re-10_ar-20_10.pdf
+{'optimizer': 'adam', 'train_batch_size': 60000, 'learning_rate': 0.001, 'beta1': 0.9, 'beta2': 0.999, 'epsilon': 1e-08, 'epochs': 1000, 'image_side': 5, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 10, 'architecture': '20_10'}
+{'train_loss': (1.9055664399999999, 0.0426757655666117), 'test_loss': (1.90349246, 0.043961108309077006), 'train_acc': (0.6110883319999999, 0.061674288217594665), 'test_acc': (0.61348, 0.06292232989964691), 'p_norm': (14.4727193, 0.33182041044488203), 'hessian_eigens_mean': (0.0009715730681697304, 0.00019674241870027055), 'hessian_eigens_Max': (0.213342409, 0.038632926295455144)}
+-----
+Done: 13/13
+Output figure for results: ./output/figures/all_sgd_medium2.pdf
+Output figure for results: ./output/figures/all_frankwolfe_stochastic_medium2.pdf
+Output figure for results: ./output/figures/all_frankwolfe_deterministic_medium2.pdf
+Output figure for results: ./output/figures/all_adam_medium2.pdf
+BEST FOR sgd mean/std
+PARAMS: {'train_batch_size': 1000}
+RESULTS: {'train_loss': (1.61003471, 0.05821113403975997), 'test_loss': (1.6118706299999999, 0.05860425139131207), 'train_acc': (0.8532683220000001, 0.06068782292752457), 'test_acc': (0.84988, 0.06060582150255865), 'p_norm': (30.0318294, 1.924644326804939), 'hessian_eigens_mean': (0.001200135177152282, 0.00019663521951496688), 'hessian_eigens_Max': (0.31698568099999996, 0.06418124362285098)}
+
+BEST FOR frankwolfe_stochastic mean/std
+PARAMS: {'train_batch_size': 5000}
+RESULTS: {'train_loss': (1.52691542, 0.0006843470987737388), 'test_loss': (1.5249548899999998, 0.0007664213755500274), 'train_acc': (0.9496999990000001, 0.0008303630934531051), 'test_acc': (0.95041, 0.0009554580053566009), 'p_norm': (19.506952400000003, 0.05698662572604213), 'hessian_eigens_mean': (0.0015440943545954628, 0.00013124539890180354), 'hessian_eigens_Max': (0.39633276100000003, 0.07529223330218815)}
+
+BEST FOR frankwolfe_deterministic mean/std
+PARAMS: {}
+RESULTS: {'train_loss': (1.57764329, 0.01664344870472765), 'test_loss': (1.57204324, 0.016109704915497382), 'train_acc': (0.9103849980000002, 0.011200515433393954), 'test_acc': (0.9149900000000001, 0.010536360851831152), 'p_norm': (16.3552338, 0.6754410729240264), 'hessian_eigens_mean': (0.0013310430096541977, 0.0001493650166901167), 'hessian_eigens_Max': (0.325363416, 0.042147276537330663)}
+
+BEST FOR adam mean/std
+PARAMS: {'train_batch_size': 1000}
+RESULTS: {'train_loss': (1.5041730000000002, 0.002521659286660256), 'test_loss': (1.5112910899999998, 0.0017381814602912037), 'train_acc': (0.9607550039999999, 0.002320886924407116), 'test_acc': (0.9511100000000001, 0.0016275441622272597), 'p_norm': (48.7296134, 1.1494009248510466), 'hessian_eigens_mean': (0.001714430335861676, 0.00010405835445533608), 'hessian_eigens_Max': (0.412523876, 0.06174280633441019)}
+
+Output figure for results: ./output/figures/best_medium2.pdf

@@ -73,7 +73,7 @@ def write_sh_file(setting_name, parameters, common):
 
         if it % 4 == 3:
             write_to_out('wait $pids')
-        write_to_out('sleep 0.1')
+        write_to_out('sleep 5')
         it += 1
     it = len(parameters)
     print('Total train stages: ', it * common['repetitions'])
