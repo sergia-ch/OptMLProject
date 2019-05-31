@@ -9,8 +9,7 @@ def restore_font():
 
 def set_big_font():
   """ Set big font size in matplotlib """
-  font = {'family' : 'normal',
-      'weight' : 'normal',
+  font = {'weight' : 'normal',
       'size'   : 20}
 
   matplotlib.rc('font', **font)
@@ -58,7 +57,6 @@ def write_sh_file(setting_name, parameters, common):
     """ Create .sh file with current setting """
     fn = output_folder + 'run_' + setting_name + '.sh'
     out = open(fn, 'w')
-    print('OUTPUT: ' + fn)
 
     def write_to_out(s):
         #print(s)
@@ -67,20 +65,20 @@ def write_sh_file(setting_name, parameters, common):
     it = 0
     write_to_out('#!/bin/bash')
     for params in parameters:
-        if it % 6 == 0:
+        if it % 4 == 0:
             write_to_out('pids=""')
         write_to_out(print_one(**params))
         #print('echo aba; sleep 3 &')
         write_to_out('pids="$pids $!"')
-        write_to_out('sleep 5')
 
-        if it % 6 == 5:
+        if it % 4 == 3:
             write_to_out('wait $pids')
-            write_to_out('sleep 5')
+        write_to_out('sleep 0.1')
         it += 1
     it = len(parameters)
-    print('Total runs: ', it * common['repetitions'])
-    print('Total time (approx): ', common['repetitions'] * 5 * it / 4 / 60)
+    print('Total train stages: ', it * common['repetitions'])
+    print('Total time, hours (approx): ', common['repetitions'] * 5 * it / 4 / 60)
+    print('OUTPUT: ' + fn)
 
     out.close()
 
@@ -145,7 +143,9 @@ def process_dict(d, do_plot, name):
 
         fig.tight_layout()
         #fig.legend(loc='lower center', bbox_to_anchor=(0.5, -0.05), shadow=True, ncol=2)
-        plt.savefig(figures_folder + name + '.pdf', bbox_inches = 'tight')
+        out_fig = figures_folder + name + '.pdf'
+        print("Output figure for loss: " + out_fig)
+        plt.savefig(out_fig, bbox_inches = 'tight')
         plt.show()
         restore_font()
 
@@ -220,5 +220,7 @@ def subplots(n, m, name, fcn, figsize = (10, 13), figname = None):
         i += 1
     plt.show()
     if figname is not None:
-        fig.savefig(figures_folder + figname + '.pdf', bbox_inches = 'tight')
+        out_fn = figures_folder + figname + '.pdf'
+        print("Output figure for results: " + out_fn)
+        fig.savefig(out_fn, bbox_inches = 'tight')
     return fig

@@ -1,0 +1,31 @@
+Which variables are changing for each optimizer?
+{'sgd': [], 'frankwolfe': [], 'adam': []}
+Output figure for loss: ./output/figures/loss_decay_small_op-sgd_tr_ba_si-1000_le_ra-1.0_ep-100_im_si-4_gi-100_ac_th-0.0_p-3.0_re-1_ar-20_10.pdf
+{'optimizer': 'sgd', 'train_batch_size': 1000, 'learning_rate': 1.0, 'epochs': 100, 'image_side': 4, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 1, 'architecture': '20_10'}
+{'train_loss': (1.8140633, 0.0), 'test_loss': (1.8053756, 0.0), 'train_acc': (0.64985, 0.0), 'test_acc': (0.6595, 0.0), 'p_norm': (17.837807, 0.0), 'hessian_eigens_mean': (0.0007502118175875641, 0.0), 'hessian_eigens_Max': (0.24975856, 0.0)}
+-----
+Output figure for loss: ./output/figures/loss_decay_small_op-frankwolfe_tr_ba_si-1000_p-3.0_R-100.0_ga--1.0_ro--1.0_ep-100_im_si-4_gi-100_ac_th-0.0_re-1_ar-20_10.pdf
+{'optimizer': 'frankwolfe', 'train_batch_size': 1000, 'p': 3.0, 'R': 100.0, 'gamma': -1.0, 'ro': -1.0, 'epochs': 100, 'image_side': 4, 'giveup': 100, 'accuracy_threshold': 0.0, 'repetitions': 1, 'architecture': '20_10'}
+{'train_loss': (1.5070473, 0.0), 'test_loss': (1.5097717, 0.0), 'train_acc': (0.95785, 0.0), 'test_acc': (0.9551, 0.0), 'p_norm': (33.74658, 0.0), 'hessian_eigens_mean': (0.0007694052699899137, 0.0), 'hessian_eigens_Max': (0.16469547, 0.0)}
+-----
+Output figure for loss: ./output/figures/loss_decay_small_op-adam_tr_ba_si-1000_p-3.0_le_ra-0.001_be-0.9_be-0.999_ep-1e-08_ep-100_im_si-4_gi-100_ac_th-0.0_re-1_ar-20_10.pdf
+{'optimizer': 'adam', 'train_batch_size': 1000, 'p': 3.0, 'learning_rate': 0.001, 'beta1': 0.9, 'beta2': 0.999, 'epsilon': 1e-08, 'epochs': 100, 'image_side': 4, 'giveup': 100, 'accuracy_threshold': 0.0, 'repetitions': 1, 'architecture': '20_10'}
+{'train_loss': (1.7060641, 0.0), 'test_loss': (1.7027737, 0.0), 'train_acc': (0.7639, 0.0), 'test_acc': (0.7663, 0.0), 'p_norm': (21.033766, 0.0), 'hessian_eigens_mean': (0.0005550761722134116, 0.0), 'hessian_eigens_Max': (0.12008552, 0.0)}
+-----
+Done: 3/3
+Output figure for results: ./output/figures/all_sgd_small.pdf
+Output figure for results: ./output/figures/all_frankwolfe_small.pdf
+Output figure for results: ./output/figures/all_adam_small.pdf
+BEST FOR sgd mean/std
+PARAMS: {}
+RESULTS: {'train_loss': (1.8140633, 0.0), 'test_loss': (1.8053756, 0.0), 'train_acc': (0.64985, 0.0), 'test_acc': (0.6595, 0.0), 'p_norm': (17.837807, 0.0), 'hessian_eigens_mean': (0.0007502118175875641, 0.0), 'hessian_eigens_Max': (0.24975856, 0.0)}
+
+BEST FOR frankwolfe mean/std
+PARAMS: {}
+RESULTS: {'train_loss': (1.5070473, 0.0), 'test_loss': (1.5097717, 0.0), 'train_acc': (0.95785, 0.0), 'test_acc': (0.9551, 0.0), 'p_norm': (33.74658, 0.0), 'hessian_eigens_mean': (0.0007694052699899137, 0.0), 'hessian_eigens_Max': (0.16469547, 0.0)}
+
+BEST FOR adam mean/std
+PARAMS: {}
+RESULTS: {'train_loss': (1.7060641, 0.0), 'test_loss': (1.7027737, 0.0), 'train_acc': (0.7639, 0.0), 'test_acc': (0.7663, 0.0), 'p_norm': (21.033766, 0.0), 'hessian_eigens_mean': (0.0005550761722134116, 0.0), 'hessian_eigens_Max': (0.12008552, 0.0)}
+
+Output figure for results: ./output/figures/best_small.pdf
