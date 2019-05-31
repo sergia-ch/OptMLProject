@@ -125,8 +125,8 @@ def process_dict(d, do_plot, name):
                 results[key].append(val[i])
     
     if do_plot:
-        fig, ax1 = plt.subplots(figsize=(5, 2.5))
         set_big_font()
+        fig, ax1 = plt.subplots(figsize=(5, 2.5))
         ax2 = ax1.twinx()
         
         ax1.set_xlabel('epochs')
