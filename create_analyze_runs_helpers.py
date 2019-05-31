@@ -23,7 +23,7 @@ class OOMFormatter(matplotlib.ticker.ScalarFormatter):
 
 # folder with .sh scripts and .output files
 output_folder = "./output/"
-figures_folder = "./output/"
+figures_folder = "./output/figures/"
 
 def varying_for_optim(d):
     """ What changes for optimizer? """
