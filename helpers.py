@@ -113,11 +113,11 @@ class StochasticFrankWolfe():
                            for w, s in zip(weights, descent_direction)])
             return tf.group(frank_wolfe_op)
           
-        def LMO(g):
+        def LMO(g, eps = 1e-5):
             """ Linear oracle for a list of tensors """
 
             # overall norm
-            g_q_qp_norm = get_p_vector_norm(g, self.q) ** (self.q / self.p)
+            g_q_qp_norm = get_p_vector_norm(g, self.q) ** (self.q / self.p) + eps
 
             g_qp = [tf.abs(g0) ** (self.q / self.p) for g0 in g]
             g_qp_signed = [tf.multiply(g_qp0, tf.sign(g0)) for g_qp0, g0 in zip(g_qp, g)]
