@@ -57,7 +57,7 @@ waitGPU.wait(nproc=1, interval = 10, gpu_ids = [0, 1])
 import tensorflow as tf
 tf.reset_default_graph()
 # allowing GPU memory growth to allocate only what we need
-config = tf.ConfigProto(log_device_placement=True)
+config = tf.ConfigProto(log_device_placement=False)
 config.gpu_options.per_process_gpu_memory_fraction = 0.5
 config.gpu_options.allow_growth = True
 sess = tf.Session(config=config, graph = tf.get_default_graph())
