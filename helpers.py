@@ -31,7 +31,7 @@ def CatVariable(shapes, initializer):
     return V, cuts
 
 class FCModelConcat():
-    """ Fully-connected network """
+    """ Fully-connected network with all weights in one tensor """
     def __init__(self, layer_shapes, activation = tf.nn.relu, initializer = tf.random.truncated_normal):
         """ Initialize with N_neurons (w/o input layer) """
         self.layer_shapes = layer_shapes
@@ -92,10 +92,13 @@ def get_p_vector_norm(list_of_tensors, order):
     return weight_p_norm
 
 def trainable_of(loss):
-    # get the Hessian of the model
+    """ Get trainable variables on which loss depends """
     return [x for x in tf.trainable_variables() if tf.gradients(loss, [x])[0] is not None]
 
 class StochasticFrankWolfe():
+  """ Stochastic Frank-Wolfe implementation
+      See https://arxiv.org/abs/1804.09554
+  """
   def __init__(self, R = 0.5, p = 3.1, gamma = 0.5, ro = 0.5):
         # gamma (learning rate)
         self.R = R
