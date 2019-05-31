@@ -1,6 +1,19 @@
 import numpy as np
 from matplotlib import pyplot as plt
+import matplotlib
 import sys, os
+
+def restore_font():
+  """ Restore matplotlib font """
+  matplotlib.rc('font', size = 10)
+
+def set_big_font():
+  """ Set big font size in matplotlib """
+  font = {'family' : 'normal',
+      'weight' : 'normal',
+      'size'   : 20}
+
+  matplotlib.rc('font', **font)
 
 # folder with .sh scripts and .output files
 output_folder = "./output/"
@@ -112,7 +125,8 @@ def process_dict(d, do_plot, name):
                 results[key].append(val[i])
     
     if do_plot:
-        fig, ax1 = plt.subplots()
+        fig, ax1 = plt.subplots(figsize=(5, 2.5))
+        set_big_font()
         ax2 = ax1.twinx()
         
         ax1.set_xlabel('epochs')
@@ -133,6 +147,7 @@ def process_dict(d, do_plot, name):
         #fig.legend(loc='lower center', bbox_to_anchor=(0.5, -0.05), shadow=True, ncol=2)
         plt.savefig(figures_folder + name + '.pdf', bbox_inches = 'tight')
         plt.show()
+        restore_font()
 
     return results
 
