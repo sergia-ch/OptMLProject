@@ -1,3 +1,4 @@
+*.tar
 files
 __pycache__
 .ipynb_checkpoints/
