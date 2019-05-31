@@ -64,9 +64,9 @@ None
 {'optimizer': 'frankwolfe', 'train_batch_size': 1000, 'R': 20.0, 'gamma': 0.5, 'ro': 0.5, 'epochs': 1000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 15, 'architecture': '50_50_20'}
 None
 -----
-!!! File  is empty
+Output figure for loss: ./output/figures/loss_decay_big_op-frankwolfe_tr_ba_si-60000_R-20.0_ga--1.0_ro-1.0_ep-20000_im_si-10_gi-100_ac_th-0.0_p-3.0_re-10_ar-50_50_20.pdf
 {'optimizer': 'frankwolfe', 'train_batch_size': 60000, 'R': 20.0, 'gamma': -1.0, 'ro': 1.0, 'epochs': 20000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 10, 'architecture': '50_50_20'}
-None
+{'train_loss': (1.6761314200000001, 0.032638516749901515), 'test_loss': (1.6727444900000001, 0.034705244709969996), 'train_acc': (0.806774996, 0.04015700735170692), 'test_acc': (0.8095099999999998, 0.04189144184675433), 'p_norm': (12.220727499999999, 0.24362891625431068), 'hessian_eigens_mean': (0.0007597588173296204, 0.00013783754352918528), 'hessian_eigens_Max': (1.5916677199999998, 0.28689671643902026)}
 -----
 Output figure for loss: ./output/figures/loss_decay_big_op-adam_tr_ba_si-1000_le_ra-0.01_be-0.9_be-0.999_ep-1e-08_ep-1000_im_si-10_gi-100_ac_th-0.0_p-3.0_re-15_ar-50_50_20.pdf
 {'optimizer': 'adam', 'train_batch_size': 1000, 'learning_rate': 0.01, 'beta1': 0.9, 'beta2': 0.999, 'epsilon': 1e-08, 'epochs': 1000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 15, 'architecture': '50_50_20'}
@@ -80,9 +80,9 @@ Output figure for loss: ./output/figures/loss_decay_big_op-adam_tr_ba_si-1000_le
 {'optimizer': 'adam', 'train_batch_size': 1000, 'learning_rate': 0.0001, 'beta1': 0.9, 'beta2': 0.999, 'epsilon': 1e-08, 'epochs': 1000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 15, 'architecture': '50_50_20'}
 {'train_loss': (1.5598807466666667, 0.05227984777448976), 'test_loss': (1.5617417333333337, 0.051480330467583026), 'train_acc': (0.9048866693333335, 0.05443375458567701), 'test_acc': (0.9017866666666665, 0.05364251879080831), 'p_norm': (24.633954999999993, 0.38729563348653157), 'hessian_eigens_mean': (0.0005259520452061528, 7.120606002225298e-05), 'hessian_eigens_Max': (0.6207355393333333, 0.11079194674081426)}
 -----
-Done: 15/20
+Done: 16/20
 MISSING
-[{'optimizer': 'frankwolfe', 'train_batch_size': 1000, 'R': 20.0, 'gamma': 0.5, 'ro': -1.0, 'epochs': 1000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 15, 'architecture': '50_50_20'}, {'optimizer': 'frankwolfe', 'train_batch_size': 1000, 'R': 20.0, 'gamma': 0.5, 'ro': 0.1, 'epochs': 1000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 15, 'architecture': '50_50_20'}, {'optimizer': 'frankwolfe', 'train_batch_size': 1000, 'R': 20.0, 'gamma': 0.5, 'ro': 0.3, 'epochs': 1000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 15, 'architecture': '50_50_20'}, {'optimizer': 'frankwolfe', 'train_batch_size': 1000, 'R': 20.0, 'gamma': 0.5, 'ro': 0.5, 'epochs': 1000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 15, 'architecture': '50_50_20'}, {'optimizer': 'frankwolfe', 'train_batch_size': 60000, 'R': 20.0, 'gamma': -1.0, 'ro': 1.0, 'epochs': 20000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 10, 'architecture': '50_50_20'}]
+[{'optimizer': 'frankwolfe', 'train_batch_size': 1000, 'R': 20.0, 'gamma': 0.5, 'ro': -1.0, 'epochs': 1000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 15, 'architecture': '50_50_20'}, {'optimizer': 'frankwolfe', 'train_batch_size': 1000, 'R': 20.0, 'gamma': 0.5, 'ro': 0.1, 'epochs': 1000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 15, 'architecture': '50_50_20'}, {'optimizer': 'frankwolfe', 'train_batch_size': 1000, 'R': 20.0, 'gamma': 0.5, 'ro': 0.3, 'epochs': 1000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 15, 'architecture': '50_50_20'}, {'optimizer': 'frankwolfe', 'train_batch_size': 1000, 'R': 20.0, 'gamma': 0.5, 'ro': 0.5, 'epochs': 1000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 15, 'architecture': '50_50_20'}]
 Output figure for results: ./output/figures/all_sgd_big.pdf
 Output figure for results: ./output/figures/all_frankwolfe_stochastic_big.pdf
 Output figure for results: ./output/figures/all_frankwolfe_deterministic_big.pdf
@@ -97,7 +97,7 @@ RESULTS: {'train_loss': (1.5020705666666667, 0.0011648834383271613), 'test_loss'
 
 BEST FOR frankwolfe_deterministic mean/std
 PARAMS: {}
-RESULTS: None
+RESULTS: {'train_loss': (1.6761314200000001, 0.032638516749901515), 'test_loss': (1.6727444900000001, 0.034705244709969996), 'train_acc': (0.806774996, 0.04015700735170692), 'test_acc': (0.8095099999999998, 0.04189144184675433), 'p_norm': (12.220727499999999, 0.24362891625431068), 'hessian_eigens_mean': (0.0007597588173296204, 0.00013783754352918528), 'hessian_eigens_Max': (1.5916677199999998, 0.28689671643902026)}
 
 BEST FOR adam mean/std
 PARAMS: {'learning_rate': 0.001}
