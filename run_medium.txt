@@ -1,5 +1,5 @@
 Which variables are changing for each optimizer?
-{'sgd': ['learning_rate'], 'frankwolfe_stochastic': ['gamma', 'ro'], 'frankwolfe_deterministic': ['gamma'], 'adam': ['learning_rate']}
+{'sgd': ['learning_rate'], 'frankwolfe_stochastic': ['ro', 'gamma'], 'frankwolfe_deterministic': ['gamma'], 'adam': ['learning_rate']}
 Output figure for loss: ./output/figures/loss_decay_medium_auto_op-sgd_tr_ba_si-1000_le_ra-0.1_ep-100_im_si-5_gi-100_ac_th-0.0_p-3.0_re-3_ar-20_10.pdf
 {'optimizer': 'sgd', 'train_batch_size': 1000, 'learning_rate': 0.1, 'epochs': 100, 'image_side': 5, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 3, 'architecture': '20_10'}
 {'train_loss': (2.0843708, 0.03572359077873713), 'test_loss': (2.0827206333333335, 0.03151717814487133), 'train_acc': (0.3884277733333333, 0.052319328513336476), 'test_acc': (0.391, 0.048166170701022096), 'p_norm': (11.899504333333333, 0.051618480775353234), 'hessian_eigens_mean': (0.0007632133612437451, 0.0001795137167691139), 'hessian_eigens_Max': (0.26587172666666664, 0.03123646258308211)}
@@ -124,7 +124,7 @@ PARAMS: {'learning_rate': 0.1}
 RESULTS: {'train_loss': (2.0843708, 0.03572359077873713), 'test_loss': (2.0827206333333335, 0.03151717814487133), 'train_acc': (0.3884277733333333, 0.052319328513336476), 'test_acc': (0.391, 0.048166170701022096), 'p_norm': (11.899504333333333, 0.051618480775353234), 'hessian_eigens_mean': (0.0007632133612437451, 0.0001795137167691139), 'hessian_eigens_Max': (0.26587172666666664, 0.03123646258308211)}
 
 BEST FOR frankwolfe_stochastic mean/std
-PARAMS: {'gamma': -1.0, 'ro': -1.0}
+PARAMS: {'ro': -1.0, 'gamma': -1.0}
 RESULTS: {'train_loss': (1.5453969, 0.00273839697755214), 'test_loss': (1.5413015666666665, 0.00273659575182173), 'train_acc': (0.93557779, 0.0031508031212480886), 'test_acc': (0.9394666666666667, 0.0031329787033357623), 'p_norm': (17.443196666666665, 0.24886716243320608), 'hessian_eigens_mean': (0.0014039304396695675, 0.000172341419222175), 'hessian_eigens_Max': (0.3195533133333333, 0.029602918097900777)}
 
 BEST FOR frankwolfe_deterministic mean/std

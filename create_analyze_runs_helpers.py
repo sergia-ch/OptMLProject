@@ -53,10 +53,12 @@ def get_file(**kwargs):
     """ Get output filename from kwargs """
     return (output_folder + "_".join([x + '-' + print_nice(kwargs[x] if x in kwargs else None) for x in args_in_order_()])+'.output')
 
-def write_sh_file(setting_name, parameters, common):
+def write_sh_file(setting_name, parameters, common, delay = None):
     """ Create .sh file with current setting """
     fn = output_folder + 'run_' + setting_name + '.sh'
     out = open(fn, 'w')
+
+    if delay is None: delay = 5
 
     def write_to_out(s):
         #print(s)
@@ -73,7 +75,7 @@ def write_sh_file(setting_name, parameters, common):
 
         if it % 4 == 3:
             write_to_out('wait $pids')
-        write_to_out('sleep 5')
+        write_to_out('sleep %.2f' % delay)
         it += 1
     it = len(parameters)
     print('Total train stages: ', it * common['repetitions'])

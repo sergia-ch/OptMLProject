@@ -48,19 +48,19 @@ Output figure for loss: ./output/figures/loss_decay_big_op-frankwolfe_tr_ba_si-1
 {'optimizer': 'frankwolfe', 'train_batch_size': 1000, 'R': 20.0, 'gamma': 0.1, 'ro': 0.5, 'epochs': 1000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 15, 'architecture': '50_50_20'}
 {'train_loss': (2.319933833333333, 0.025247832307683134), 'test_loss': (2.31997062, 0.024878606009185247), 'train_acc': (0.10423111093333333, 0.01668626040368155), 'test_acc': (0.10421333333333332, 0.01673443024293195), 'p_norm': (6.965786160000001, 3.480379036732501), 'hessian_eigens_mean': (9.015536793003221e-07, 4.373760298022002e-06), 'hessian_eigens_Max': (0.014587945270837939, 0.024557642819357378)}
 -----
-!!! File  is empty
+!!! File cannot be processed unexpected EOF while parsing (<string>, line 1)
 {'optimizer': 'frankwolfe', 'train_batch_size': 1000, 'R': 20.0, 'gamma': 0.5, 'ro': -1.0, 'epochs': 1000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 15, 'architecture': '50_50_20'}
 None
 -----
-!!! File  is empty
+!!! File cannot be processed unexpected EOF while parsing (<string>, line 1)
 {'optimizer': 'frankwolfe', 'train_batch_size': 1000, 'R': 20.0, 'gamma': 0.5, 'ro': 0.1, 'epochs': 1000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 15, 'architecture': '50_50_20'}
 None
 -----
-!!! File  is empty
+!!! File cannot be processed unexpected EOF while parsing (<string>, line 1)
 {'optimizer': 'frankwolfe', 'train_batch_size': 1000, 'R': 20.0, 'gamma': 0.5, 'ro': 0.3, 'epochs': 1000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 15, 'architecture': '50_50_20'}
 None
 -----
-!!! File  is empty
+!!! File cannot be processed unexpected EOF while parsing (<string>, line 1)
 {'optimizer': 'frankwolfe', 'train_batch_size': 1000, 'R': 20.0, 'gamma': 0.5, 'ro': 0.5, 'epochs': 1000, 'image_side': 10, 'giveup': 100, 'accuracy_threshold': 0.0, 'p': 3.0, 'repetitions': 15, 'architecture': '50_50_20'}
 None
 -----

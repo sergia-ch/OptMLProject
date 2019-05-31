@@ -7,6 +7,7 @@ from config import *
 
 parser = argparse.ArgumentParser(description='Run all experiments in one setting')
 parser.add_argument('--setting', type=str, help='Setting to use (small/big/...)')
+parser.add_argument('--delay', type=float, help='Delay between commands')
 
 # parsing arguments
 args = parser.parse_args()
@@ -28,4 +29,4 @@ print('Which variables are changing for each optimizer?')
 print(varying)
 
 ### Creating the `.sh` file
-write_sh_file(setting_name, parameters, common)
+write_sh_file(setting_name, parameters, common, delay = args.delay)
