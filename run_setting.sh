@@ -5,7 +5,7 @@ then
 	exit 1
 fi
 
-if [ " X$2" == "X" ]
+if [ "X$2" == "X" ]
 then
   delay=5
 else
