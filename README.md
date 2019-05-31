@@ -22,7 +22,7 @@ Tested on Ubuntu 16.04.5 LTS with 12 CPU, 60GB of RAM and 2x GPU NVidia GeForce 
 6. Select the setting in the first cells (small/medium/big/batch size)
 7. Generate `.sh` file in `output/` (next cells)
 8. Navigate to `output/` and run your `.sh` file
-9. It will produce `output/*.output` files and `output/figures/*.eps` files
+9. It will produce `output/*.output` files and `output/figures/*.pdf` files
 10. Run the rest of the notebook `create_analyze_runs` to aggregate the results
 
 ## Project structure

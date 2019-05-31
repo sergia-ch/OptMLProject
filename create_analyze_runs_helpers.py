@@ -2,25 +2,6 @@ import numpy as np
 from matplotlib import pyplot as plt
 import sys, os
 
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.ticker
-
-class OOMFormatter(matplotlib.ticker.ScalarFormatter):
-    """ Scientific sclale for pyplot, see
-         https://stackoverflow.com/questions/42656139/set-scientific-notation-with-fixed-exponent-and-significant-digits-for-multiple
-    """
-    def __init__(self, order=0, fformat="%1.1f", offset=True, mathText=True):
-        self.oom = order
-        self.fformat = fformat
-        matplotlib.ticker.ScalarFormatter.__init__(self,useOffset=offset,useMathText=mathText)
-    def _set_orderOfMagnitude(self, nothing):
-        self.orderOfMagnitude = self.oom
-    def _set_format(self, vmin, vmax):
-        self.format = self.fformat
-        if self._useMathText:
-            self.format = '$%s$' % matplotlib.ticker._mathdefault(self.format)
-
 # folder with .sh scripts and .output files
 output_folder = "./output/"
 figures_folder = "./output/figures/"
@@ -62,7 +43,7 @@ def get_file(**kwargs):
 
 def write_sh_file(setting_name, parameters, common):
     """ Create .sh file with current setting """
-    fn = 'run_' + setting_name + '.sh'
+    fn = output_folder + 'run_' + setting_name + '.sh'
     out = open(fn, 'w')
     print('OUTPUT: ' + fn)
 
@@ -150,7 +131,7 @@ def process_dict(d, do_plot, name):
 
         fig.tight_layout()
         #fig.legend(loc='lower center', bbox_to_anchor=(0.5, -0.05), shadow=True, ncol=2)
-        plt.savefig(figures_folder + name + '.eps', bbox_inches = 'tight')
+        plt.savefig(figures_folder + name + '.pdf', bbox_inches = 'tight')
         plt.show()
 
     return results
@@ -224,5 +205,5 @@ def subplots(n, m, name, fcn, figsize = (10, 13), figname = None):
         i += 1
     plt.show()
     if figname is not None:
-        fig.savefig(figures_folder + figname + '.eps', bbox_inches = 'tight')
+        fig.savefig(figures_folder + figname + '.pdf', bbox_inches = 'tight')
     return fig
